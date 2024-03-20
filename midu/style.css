@@ -8,11 +8,11 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.grid-container {
+body {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 300px;
-  min-height: 100svh;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: repeat(3, 1fr);
+  min-height: 100vh;
   gap: 20px;
 }
 
@@ -22,6 +22,23 @@
   object-fit: cover;
   object-position: center;
 }
+
+header {
+  display: grid;
+  justify-content: space-between;
+  justify-items: center;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  color: var(--primary-color);
+  background-color: var(--blue-color);
+  padding: var(--spacing);
+}
+
+header > h1 {
+  font-size: 29px;
+}
+
+/*ESTILOS PARA LAS SECCIONES*/
 
 .school {
   grid-column: 2/3;
@@ -41,21 +58,6 @@
 .alumni {
   grid-column: 1/2;
   grid-row: 3/3;
-}
-
-header {
-  display: grid;
-  justify-content: space-between;
-  justify-items: center;
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-  color: var(--primary-color);
-  background-color: var(--blue-color);
-  padding: var(--spacing);
-}
-
-header > h1 {
-  font-size: 29px;
 }
 
 main {
@@ -85,9 +87,9 @@ button {
   cursor: pointer;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1480px) {
   body {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
