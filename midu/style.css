@@ -10,8 +10,8 @@
 
 body {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 300px;
   min-height: 100vh;
   gap: 20px;
 }
@@ -40,32 +40,25 @@ header > h1 {
 
 /*ESTILOS PARA LAS SECCIONES*/
 
-.school {
-  grid-column: 2/3;
-  grid-row: 1/1;
+section {
+  min-width: 300px;
+  gap: 20px;
 }
 
-.student {
-  grid-column: 3/4;
-  grid-row: 1/1;
+section > .school {
+  display: grid;
+  grid-row: 1 / 2;
 }
 
-.time {
-  grid-column: 3/4;
-  grid-row: 2/2;
-}
-
-.alumni {
-  grid-column: 1/2;
-  grid-row: 3/3;
+section > .student {
+  display: grid;
+  grid-row: 1 / 3;
 }
 
 main {
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-column: 2/3;
-  grid-row: 2/2;
   font-size: 20px;
   padding: var(--spacing);
   color: var(--blue-color);
@@ -73,8 +66,8 @@ main {
 }
 
 footer {
+  display: grid;
   grid-column: 2 / 4;
-  grid-row: 3 / 3;
   padding: var(--spacing);
   color: var(--primary-color);
   background-color: var(--orange-color);
@@ -87,15 +80,11 @@ button {
   cursor: pointer;
 }
 
-@media (max-width: 1480px) {
+@media (max-width: 750px) {
   body {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
-}
-
-.alumni,
-.school,
-.student,
-.time {
-  background-size: cover;
+  footer {
+    grid-column: 1;
+  }
 }
